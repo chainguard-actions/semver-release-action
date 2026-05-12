@@ -1,4 +1,4 @@
-name: Test dry-run with prefix and major bump
+name: Test dry-run major bump with v prefix
 on:
   workflow_dispatch:
 jobs:

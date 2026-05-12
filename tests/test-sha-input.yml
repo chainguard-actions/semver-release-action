@@ -1,4 +1,4 @@
-name: Test dry-run with explicit sha input
+name: Test dry-run with explicit SHA input
 on:
   workflow_dispatch:
 jobs:
@@ -12,9 +12,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Get current commit SHA
+      - name: Get current HEAD SHA
         id: get-sha
-        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+        run: |
+          SHA=$(git rev-parse HEAD)
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          echo "HEAD SHA: $SHA"
 
       - id: action
         uses: .
